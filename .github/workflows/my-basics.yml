@@ -1,0 +1,30 @@
+name: My-GitHubActions
+
+on: 
+  push:
+    branches: 
+      -develop
+      
+  workflow_dispatch:
+  
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print hello message
+        run: echo Hello, world form test!
+        
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+  packaging:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print hello message
+        run: echo Hello, world form deploy!
+
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
