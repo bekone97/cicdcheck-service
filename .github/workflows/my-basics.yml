@@ -9,10 +9,10 @@ on:
   
 jobs:
   testing:
-    runs-on: ubuntu-latest
+    runs-on: maven-latest
     steps:
       - name: Print hello message
-        run: echo Hello, world form test!
+        run: "mvn test"
         
       - name: Run a multi-line script
         run: |
