@@ -1,6 +1,7 @@
 package com.example.cicdcheckservice.service.integration;
 
 import com.example.cicdcheckservice.dataTypeFactory.AdditionalPostgresDataTypeFactory;
+import com.example.cicdcheckservice.initializer.DatabaseContainerInitializer;
 import com.example.cicdcheckservice.model.EmployeeRepository;
 import com.example.cicdcheckservice.model.entity.Employee;
 import com.example.cicdcheckservice.model.entity.Gender;
@@ -31,7 +32,7 @@ import static org.mockito.Mockito.when;
 dataTypeFactoryClass = AdditionalPostgresDataTypeFactory.class)
 @ActiveProfiles("test")
 @ExtendWith(MockitoExtension.class)
-class HelloServiceIntegrationTest {
+class HelloServiceIntegrationTest extends DatabaseContainerInitializer {
 
     @Autowired
     private HelloServiceImpl helloService;
