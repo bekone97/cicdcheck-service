@@ -1,16 +1,15 @@
 name: My-GitHubActionsFeature
 on: 
-  pull_request:
-    types: [merged,pushed]
+  push:
     branches:
-      - 'develop'
       - 'feature**'
-      
+  pull_request:
+      branches: 
+      - 'develop'
   workflow_dispatch:
   
 jobs:
   unit_testing:
-    if: ${{ github.event.action }} == 'pushed'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -27,7 +26,8 @@ jobs:
         run: echo Test completed
         
   integration_testing:
-    if: ${{ github.event.action }} == 'merged'
+    if: github.ref == 'refs/heads/develop'
+    needs: unit_testing
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
