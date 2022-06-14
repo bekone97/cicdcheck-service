@@ -74,16 +74,16 @@
             <artifactId>liquibase-core</artifactId>
         </dependency>
 
-    <dependency>
-        <groupId>org.testcontainers</groupId>
-        <artifactId>junit-jupiter</artifactId>
-        <scope>test</scope>
-    </dependency>
-    <dependency>
-        <groupId>org.testcontainers</groupId>
-        <artifactId>postgresql</artifactId>
-        <scope>test</scope>
-    </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>com.github.database-rider</groupId>
             <artifactId>rider-junit5</artifactId>
@@ -93,42 +93,42 @@
     </dependencies>
     <build>
         <plugins>
-    <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId> <!-- surefire plugin version managed by Spring Boot -->
-        <configuration>
-            <skipTests>true</skipTests>
-        </configuration>
-        <executions>
-            <execution>
-                <id>unit-tests</id>
-                <phase>test</phase>
-                <goals>
-                    <goal>test</goal>
-                </goals>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId> <!-- surefire plugin version managed by Spring Boot -->
                 <configuration>
-                    <skipTests>false</skipTests>
-                    <includes>
-                        <include>**/unit/**.java</include>
-                    </includes>
+                    <skipTests>true</skipTests>
                 </configuration>
-            </execution>
-            <execution>
-                <id>integration-tests</id>
-                <phase>integration-test</phase>
-                <goals>
-                    <goal>test</goal>
-                </goals>
-                <configuration>
-                    <skipTests>false</skipTests>
-                    <includes>
-                        <include>**/unit/**.java</include>
-                        <include>**/integration/**.java</include>
-                    </includes>
-                </configuration>
-            </execution>
-        </executions>
-    </plugin>
-    </plugins>
+                <executions>
+                    <execution>
+                        <id>unit-tests</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <configuration>
+                            <skipTests>false</skipTests>
+                            <includes>
+                                <include>**/unit/**.java</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>integration-tests</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <configuration>
+                            <skipTests>false</skipTests>
+                            <includes>
+                                <include>**/unit/**.java</include>
+                                <include>**/integration/**.java</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 </project>
