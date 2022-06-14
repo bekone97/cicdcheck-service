@@ -9,15 +9,13 @@ on:
   
 jobs:
   testing:
-    runs-on: maven-latest
+    runs-on: ubuntu-latest
     steps:
-      - name: Print hello message
-        run: "mvn test"
+      - name: build and start database container
+        run: docker-compose -f docker-compose.yml up -d --build
         
       - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+        run: echo database started
           
   packaging:
     runs-on: ubuntu-latest
