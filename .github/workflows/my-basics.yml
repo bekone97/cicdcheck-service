@@ -23,7 +23,7 @@ jobs:
         run: mvn -B clean test
         
       - name: Run a multi-line script
-        run: Test completed
+        run: echo Test completed
   packaging:
     runs-on: ubuntu-latest
     needs: [testing]
